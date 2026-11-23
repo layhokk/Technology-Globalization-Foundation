@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology Globalization Foundation (TGF)</title>
+<meta name="description" content="Technology Globalization Foundation — Empowering People Through Language, Technology, and Innovation.">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/tgf-emblem-64.png">
+<link rel="apple-touch-icon" href="assets/tgf-emblem-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A; --navy-2:#132C52; --blue:#1E6FD9; --blue-2:#3B8BF0; --sky:#E8F1FD;
+  --white:#fff; --gold:#F5A623; --gold-2:#FFC94D; --gray:#F3F5F8; --line:#E2E7EF; --text:#1A2333; --muted:#5B6678;
+  --radius:16px; --shadow:0 10px 30px -12px rgba(11,31,58,.18);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--text);background:var(--white);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:Sora,sans-serif;color:var(--navy);line-height:1.2;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font:600 12px/1 Sora,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.lead{font-size:18px;color:var(--muted);max-width:640px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font:600 15px Manrope,sans-serif;border:1.5px solid transparent;cursor:pointer;transition:.18s}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#185DBA}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-outline{border-color:var(--line);color:var(--navy);background:#fff}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+section{padding:88px 0}
+.section-head{margin-bottom:44px}
+.section-head h2{font-size:clamp(28px,3.4vw,40px);margin:12px 0 14px}
+.bg-gray{background:var(--gray)}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img.logo-h{height:58px;width:auto}
+.foot-emblem{width:92px;height:92px;border-radius:50%;background:#fff;padding:3px}
+.emblem-wrap{display:grid;place-items:center}
+.emblem-wrap img{width:min(340px,80%);height:auto;filter:drop-shadow(0 20px 40px rgba(11,31,58,.25))}
+.gold-rule{display:inline-block;width:44px;height:3px;background:var(--gold);border-radius:3px;vertical-align:middle;margin-right:10px}
+.logo{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--navy),var(--blue));display:grid;place-items:center;color:#fff;font:800 14px Sora}
+.brand-text b{display:block;font:700 15px Sora;color:var(--navy);line-height:1.1}
+.brand-text span{font-size:11.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.menu{display:flex;gap:4px;list-style:none}
+.menu a{padding:9px 13px;border-radius:9px;font-weight:600;font-size:14.5px;color:var(--navy-2)}
+.menu a:hover,.menu a.active{background:var(--sky);color:var(--blue)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.burger{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--navy);margin:5px auto;border-radius:2px}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(59,139,240,.45),transparent 60%),linear-gradient(160deg,var(--navy) 0%,#0E2A55 100%);color:#fff;padding:96px 0 110px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero-tag{display:flex;align-items:center;margin-top:30px;color:#C9D7EC;font-style:italic;font-weight:600}
+.hero .eyebrow{color:var(--gold-2)}
+.hero h1{color:#fff;font-size:clamp(36px,5vw,58px);margin:18px 0 20px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold-2),#fff 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:19px;color:#C9D7EC;max-width:560px}
+.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 34px}
+.pill{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:14px;font-weight:600;color:#E3ECF8}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{position:relative}
+.orbit{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:28px}
+.orbit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+.mini .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(143,192,255,.18);margin-bottom:12px}
+.mini b{font:600 15px Sora;display:block}
+.mini small{color:#AFC3E0;font-size:13px}
+.globe-badge{margin-top:14px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(30,111,217,.35);border:1px solid rgba(143,192,255,.35);font-size:14px}
+
+/* Cards */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.2s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#CFDAEA}
+.card h3{font-size:19px;margin:16px 0 8px}
+.card p{color:var(--muted);font-size:15px}
+.icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--sky)}
+.card .more{margin-top:18px;display:inline-flex;gap:6px;font-weight:700;font-size:14px;color:var(--blue);cursor:pointer}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.why-list{list-style:none;display:grid;gap:14px;margin-top:8px}
+.why-list li{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-weight:600}
+.check{flex:none;width:26px;height:26px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.stat-panel{background:linear-gradient(150deg,var(--navy),var(--navy-2));border-radius:24px;padding:36px;color:#fff}
+.stat-panel h3{color:#fff;font-size:22px;margin-bottom:6px}
+.stat-panel p{color:#B8C8E0;font-size:15px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px}
+.stat b{font:700 28px Sora;color:var(--gold-2);display:block}
+.stat span{font-size:13.5px;color:#C9D7EC}
+
+.involve{background:linear-gradient(135deg,var(--blue) 0%,#174FA3 100%);color:#fff;border-radius:28px;padding:56px}
+.involve h2{color:#fff}
+.involve .lead{color:#D9E7FB}
+.involve{position:relative;overflow:hidden}
+.involve::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:3px solid rgba(255,201,77,.45)}
+.roles{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.role{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:20px;cursor:pointer;transition:.18s}
+.role:hover{background:rgba(255,255,255,.18)}
+.role b{font:600 16px Sora;display:block;margin:10px 0 4px}
+.role small{color:#D9E7FB;font-size:13px}
+
+/* Page hero */
+.page-hero{background:linear-gradient(160deg,var(--navy),#0E2A55);color:#fff;padding:72px 0 64px}
+.page-hero .eyebrow{color:var(--gold-2)}
+.page-hero h1{color:#fff;font-size:clamp(32px,4.4vw,48px);margin:14px 0 12px}
+.page-hero p{color:#C9D7EC;font-size:18px;max-width:680px}
+.crumb{font-size:13.5px;color:#9FB4D3;margin-bottom:18px}
+.crumb a:hover{color:#fff}
+
+/* Departments / tables */
+.dept{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;margin-bottom:28px}
+.dept-head{display:flex;gap:22px;align-items:center;padding:28px 32px;background:var(--gray);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.dept-head .num{font:700 13px Sora;color:var(--blue);letter-spacing:.1em}
+.dept-head h3{font-size:24px;margin:4px 0}
+.dept-head p{color:var(--muted);font-size:15px}
+.tags{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.tag{font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy-2)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:16px 32px;border-bottom:1px solid var(--line);font-size:15px}
+th{font:600 12.5px Sora;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:#fff}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;color:var(--navy);width:34%}
+.level-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:10px;vertical-align:middle}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:600 14.5px Manrope;cursor:pointer;color:var(--navy-2)}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* Forms */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-weight:700;font-size:14px;color:var(--navy)}
+input,select,textarea{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:#fff;color:var(--text);transition:.15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(30,111,217,.12)}
+textarea{min-height:120px;resize:vertical}
+.form-note{font-size:13px;color:var(--muted);margin-top:14px}
+.success{display:none;padding:18px 20px;border-radius:14px;background:#E9F7EF;border:1px solid #B9E4C9;color:#14532D;font-weight:600;margin-top:18px}
+
+.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 18px}
+.amt{padding:14px 0;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:700 17px Sora;color:var(--navy);cursor:pointer}
+.amt.on{border-color:var(--blue);background:var(--sky);color:var(--blue)}
+.freq{display:flex;background:var(--gray);border-radius:12px;padding:4px;margin-bottom:16px}
+.freq button{flex:1;padding:10px;border:0;background:none;border-radius:9px;font:600 14px Manrope;cursor:pointer;color:var(--muted)}
+.freq button.on{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.alloc{display:grid;gap:14px}
+.alloc-row{display:grid;grid-template-columns:150px 1fr 48px;gap:14px;align-items:center;font-size:14.5px;font-weight:600}
+.bar{height:10px;background:var(--gray);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-2));border-radius:99px}
+
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:ph}
+.phase{border:1px solid var(--line);border-radius:18px;padding:26px;background:#fff;position:relative}
+.phase .badge{display:inline-block;font:700 12px Sora;padding:6px 11px;border-radius:99px;background:#FEF3DC;color:#A86400;margin-bottom:12px}
+.phase.now{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,166,35,.15)}
+.phase ul{margin-top:12px;padding-left:18px;color:var(--muted);font-size:14.5px}
+.phase li{margin:4px 0}
+
+.feature{display:flex;gap:16px;padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.feature .icon{flex:none;width:46px;height:46px}
+.feature h4{font-size:16px;margin-bottom:4px}
+.feature p{font-size:14.5px;color:var(--muted)}
+
+.person{text-align:center}
+.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--sky),#CFE2FB);display:grid;place-items:center;font:700 22px Sora;color:var(--blue)}
+
+.partner-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.plogo{height:96px;border:1.5px dashed #C9D4E4;border-radius:14px;display:grid;place-items:center;color:var(--muted);font-weight:600;font-size:14px;background:#fff;text-align:center;padding:10px}
+
+/* Footer */
+footer{background:var(--navy);color:#B8C8E0;padding:72px 0 28px;border-top:4px solid var(--gold)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font-size:15px;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:10px;font-size:14.5px}
+footer a:hover{color:#fff}
+.foot-brand p{font-size:14.5px;margin:16px 0 20px;max-width:320px}
+.newsletter{display:flex;gap:8px}
+.newsletter input{flex:1;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:#fff}
+.newsletter input::placeholder{color:#8EA3C2}
+.foot-bottom{margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px}
+
+.view{display:none}
+.view.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (max-width:1040px){
+  .menu,.nav-cta .btn-outline{display:none}
+  .burger{display:block}
+  .menu.open{display:flex;flex-direction:column;position:absolute;top:74px;left:0;right:0;background:#fff;padding:12px 20px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-grid,.split{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .roles{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .timeline,.grid-3{grid-template-columns:1fr 1fr}
+  .partner-logos{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .grid-4,.grid-3,.grid-2,.timeline,.roles,.form-grid{grid-template-columns:1fr}
+  .involve{padding:34px 22px}
+  .foot-grid{grid-template-columns:1fr}
+  th,td{padding:14px 18px}
+  .dept-head{padding:22px}
+  .amounts{grid-template-columns:repeat(2,1fr)}
+  .alloc-row{grid-template-columns:110px 1fr 40px}
+  .brand-text span{display:none}
+  .brand img.logo-h{height:40px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9M8.5 3v2M6 5c.6 3 2.6 5.6 5.5 7M11 5c-.8 3.6-3.4 6.6-7 8"/><path d="M13 21l4-9 4 9M14.5 18h5"/></symbol>
+    <symbol id="i-pc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M10 10h4v4h-4zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+    <symbol id="i-student" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></symbol>
+    <symbol id="i-teach" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 20l2-4M17 20l-2-4M7 9h6M7 12h10"/></symbol>
+    <symbol id="i-mentor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.3-4.5 3-4.5s4 1.5 4 4.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-8-4.6-8-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5C20 15.4 12 20 12 20z"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14l4-4 4 2 3-3 4 1 3 3-6 6H9z"/><path d="M7 10l3-3h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></symbol>
+    <symbol id="i-quiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></symbol>
+    <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Technology Globalization Foundation — home">
+      <img class="logo-h" src="assets/tgf-logo-horizontal.png" alt="TGF — Technology Globalization Foundation">
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#home" data-nav="home">Home</a></li>
+      <li><a href="#about" data-nav="about">About Us</a></li>
+      <li><a href="#programs" data-nav="programs">Programs</a></li>
+      <li><a href="#courses" data-nav="courses">Courses</a></li>
+      <li><a href="#impact" data-nav="impact">Our Impact</a></li>
+      <li><a href="#get-involved" data-nav="get-involved">Get Involved</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="#register">Register</a>
+      <a class="btn btn-primary" href="#donate">Donate</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Welcome to TGF</div>
+        <h1>Empowering People Through <em>Language, Technology, and Innovation.</em></h1>
+        <p class="sub">Accessible, hands-on education that helps learners around the world build practical skills for school, work, and the digital future.</p>
+        <div class="pill-row">
+          <span class="pill">Learn English</span><span class="pill">Master Digital Skills</span><span class="pill">Discover Coding</span><span class="pill">Explore AI</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#programs">Explore Programs <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#get-involved">Join Our Community</a>
+        </div>
+        <div class="hero-tag"><span class="gold-rule"></span>Empowering People. Connecting the World.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit">
+          <div class="orbit-grid">
+            <div class="mini"><div class="ic" style="color:#8FC0FF"><svg width="22" height="22"><use href="#i-lang"/></svg></div><b>English</b><small>4 learning levels</small></div>
+            <div class="mini"><div class="ic" style="color:#8FC0FF"><svg width="22" height="22"><use href="#i-pc"/></svg></div><b>Computer Skills</b><small>6 practical courses</small></div>
+            <div class="mini"><div class="ic" style="color:#8FC0FF"><svg width="22" height="22"><use href="#i-code"/></svg></div><b>Coding</b><small>Beginner to projects</small></div>
+            <div class="mini"><div class="ic" style="color:#8FC0FF"><svg width="22" height="22"><use href="#i-ai"/></svg></div><b>Artificial Intelligence</b><small>6 future-ready courses</small></div>
+          </div>
+          <div class="globe-badge"><svg width="26" height="26" style="color:#fff"><use href="#i-globe"/></svg><span><b>A global learning community</b><br><span style="color:#C9D7EC">Volunteer instructors and mentors worldwide</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Who We Are</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin:12px 0 18px">Technology Creates Opportunities</h2>
+        <p class="lead">Technology Globalization Foundation aims to make education and technology skills more accessible to people around the world. We help learners build practical skills for education, employment, and the digital future.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#about">About TGF</a>
+          <a class="btn btn-outline" href="#impact">Our Impact</a>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:16px">
+        <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-globe"/></svg></div><h3>Mission</h3><p>Make language and technology education accessible to everyone, everywhere.</p></div>
+        <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-student"/></svg></div><h3>Vision</h3><p>A world where every learner can take part in the digital economy.</p></div>
+        <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-mentor"/></svg></div><h3>Community</h3><p>Learners, volunteer teachers, and mentors growing together.</p></div>
+        <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-shield"/></svg></div><h3>Responsibility</h3><p>Ethical, safe, and responsible use of technology and AI.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Educational Programs</div>
+        <h2>Four departments. One path to the digital future.</h2>
+        <p class="lead">Start where you are — every program begins at a beginner-friendly level.</p>
+      </div>
+      <div class="grid-4" id="home-programs"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">Why Learn With TGF?</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin:12px 0 22px">Learning built for real life</h2>
+        <ul class="why-list">
+          <li><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>Practical, hands-on learning.</li>
+          <li><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>Beginner-friendly educational programs.</li>
+          <li><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>Skills for school, work, and everyday life.</li>
+          <li><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>Opportunities to learn from volunteers and mentors.</li>
+          <li><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>Access to a global learning community.</li>
+        </ul>
+      </div>
+      <div class="stat-panel">
+        <h3>Our curriculum at a glance</h3>
+        <p>A structured pathway from first steps to advanced, project-based learning.</p>
+        <div class="stats">
+          <div class="stat"><b>4</b><span>Educational departments</span></div>
+          <div class="stat"><b>20+</b><span>Courses and learning levels</span></div>
+          <div class="stat"><b>3</b><span>Development phases</span></div>
+          <div class="stat"><b>100%</b><span>Beginner-friendly start</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="involve">
+        <div class="eyebrow" style="color:#CFE2FB">Get Involved</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin:12px 0 12px">Be part of the mission</h2>
+        <p class="lead">Whether you want to learn, teach, mentor, give, or partner — there's a place for you at TGF.</p>
+        <div class="roles" id="home-roles"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="view" id="v-about">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / About Us</div>
+    <div class="eyebrow">About Us</div>
+    <h1>Education without borders</h1>
+    <p>TGF is an international nonprofit education organization helping people develop practical skills in English, computers, programming, and artificial intelligence.</p>
+  </div></div>
+  <section>
+    <div class="wrap split">
+      <div class="emblem-wrap"><img src="assets/tgf-emblem-512.png" alt="Technology Globalization Foundation emblem"></div>
+      <div>
+        <div class="eyebrow">Our Identity</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin:12px 0 16px">Empowering People. Connecting the World.</h2>
+        <p class="lead">Our emblem brings together what TGF stands for: the <b style="color:var(--navy)">globe</b> for a worldwide community of learners, the <b style="color:var(--navy)">open book</b> for education, and the <b style="color:var(--navy)">graduate reaching for a star</b> for the ambition and achievement we help every student realize.</p>
+      </div>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap grid-3">
+      <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-globe"/></svg></div><h3>Our Mission</h3><p>To make education and technology skills accessible to people around the world, helping learners build practical skills for education, employment, and the digital future.</p></div>
+      <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-student"/></svg></div><h3>Our Vision</h3><p>A world where language and technology are bridges — not barriers — to opportunity, so that every learner can participate fully in a global digital society.</p></div>
+      <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-shield"/></svg></div><h3>Our Values</h3><p>Accessibility, practical learning, community, integrity, and the responsible use of technology and AI.</p></div>
+    </div>
+  </section>
+  <section class="bg-gray">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Our Story</div><h2>How TGF began</h2>
+      <p class="lead">[Add your founding story here — why TGF was created, the communities you serve, and the milestones you've reached so far.]</p></div>
+      <div class="section-head" style="margin-bottom:28px"><div class="eyebrow">Leadership</div><h2>Our team</h2></div>
+      <div class="grid-4">
+        <div class="card person"><div class="avatar">FN</div><h3 style="margin-top:0">Founder Name</h3><p>Founder &amp; Executive Director</p></div>
+        <div class="card person"><div class="avatar">PD</div><h3 style="margin-top:0">Team Member</h3><p>Program Director</p></div>
+        <div class="card person"><div class="avatar">CL</div><h3 style="margin-top:0">Team Member</h3><p>Curriculum Lead</p></div>
+        <div class="card person"><div class="avatar">PC</div><h3 style="margin-top:0">Team Member</h3><p>Partnerships &amp; Community</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PROGRAMS ================= -->
+<div class="view" id="v-programs">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Programs</div>
+    <div class="eyebrow">Programs</div>
+    <h1>Our four educational departments</h1>
+    <p>Structured learning pathways that take you from your first lesson to real-world projects.</p>
+  </div></div>
+  <section>
+    <div class="wrap grid-2" id="programs-grid"></div>
+  </section>
+  <section class="bg-gray">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Student Learning System</div><h2>Features we're building as we grow</h2></div>
+      <div class="grid-3">
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-user"/></svg></div><div><h4>Student Registration</h4><p>Students create accounts and apply for courses.</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-play"/></svg></div><div><h4>Online Learning</h4><p>Access lessons, videos, and learning materials.</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-quiz"/></svg></div><div><h4>Quizzes &amp; Assessments</h4><p>Complete quizzes and track your progress.</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-cert"/></svg></div><div><h4>Certificates</h4><p>Earn certificates after completing eligible courses.</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-dash"/></svg></div><div><h4>Student Dashboard</h4><p>See enrolled courses, progress, and achievements.</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-teach"/></svg></div><div><h4>Instructor Dashboard</h4><p>Teachers manage students, lessons, and assessments.</p></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= COURSES ================= -->
+<div class="view" id="v-courses">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Courses</div>
+    <div class="eyebrow">Courses</div>
+    <h1>Course catalog</h1>
+    <p>Detailed course descriptions and learning levels across all four departments.</p>
+  </div></div>
+  <section>
+    <div class="wrap">
+      <div class="tabs" id="course-tabs"></div>
+      <div id="course-list"></div>
+      <div style="text-align:center;margin-top:20px"><a class="btn btn-primary" href="#register">Apply for a course <svg width="18" height="18"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= IMPACT ================= -->
+<div class="view" id="v-impact">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Our Impact</div>
+    <div class="eyebrow">Our Impact</div>
+    <h1>Measuring what matters</h1>
+    <p>Student numbers, projects, and achievements — updated as our community grows.</p>
+  </div></div>
+  <section>
+    <div class="wrap">
+      <div class="grid-4">
+        <div class="card"><div class="eyebrow">Learners</div><h2 style="font-size:40px;margin:10px 0 4px;color:var(--blue)">—</h2><p>Students enrolled</p></div>
+        <div class="card"><div class="eyebrow">Volunteers</div><h2 style="font-size:40px;margin:10px 0 4px;color:var(--blue)">—</h2><p>Instructors &amp; mentors</p></div>
+        <div class="card"><div class="eyebrow">Countries</div><h2 style="font-size:40px;margin:10px 0 4px;color:var(--blue)">—</h2><p>Where our learners live</p></div>
+        <div class="card"><div class="eyebrow">Certificates</div><h2 style="font-size:40px;margin:10px 0 4px;color:var(--blue)">—</h2><p>Courses completed</p></div>
+      </div>
+      <p class="form-note" style="text-align:center;margin-top:18px">Placeholder figures — replace with your real numbers as you collect them.</p>
+    </div>
+  </section>
+  <section class="bg-gray">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Roadmap</div><h2>How TGF is growing</h2></div>
+      <div class="timeline">
+        <div class="phase now"><span class="badge">Phase 1 · Now</span><h3>Official Website</h3><ul><li>Homepage &amp; About Us</li><li>Educational programs &amp; courses</li><li>Contact Us</li><li>Volunteer &amp; Donate pages</li></ul></div>
+        <div class="phase"><span class="badge">Phase 2</span><h3>Student Management</h3><ul><li>Student registration</li><li>Login &amp; authentication</li><li>Course enrollment</li><li>Student &amp; instructor dashboards</li></ul></div>
+        <div class="phase"><span class="badge">Phase 3</span><h3>Online Education Platform</h3><ul><li>Online lessons &amp; video courses</li><li>Quizzes and exams</li><li>Learning progress &amp; certificates</li><li>Student achievements</li></ul></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Partners</div><h2>Universities, companies, and supporting organizations</h2><p class="lead">We're building partnerships that expand access to learning. Interested? <a href="#get-involved" style="color:var(--blue);font-weight:700">Become a partner</a>.</p></div>
+      <div class="partner-logos">
+        <div class="plogo">Your organization here</div><div class="plogo">University partner</div><div class="plogo">Technology partner</div><div class="plogo">Community partner</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GET INVOLVED ================= -->
+<div class="view" id="v-get-involved">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Get Involved</div>
+    <div class="eyebrow">Get Involved</div>
+    <h1>Volunteer, mentor, or partner with TGF</h1>
+    <p>Share your skills with learners around the world. Most volunteering can be done online, on your schedule.</p>
+  </div></div>
+  <section>
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <div class="grid-2" style="gap:16px">
+          <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-teach"/></svg></div><h3>Volunteer Instructor</h3><p>Teach English, computer skills, coding, or AI to small groups.</p></div>
+          <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-mentor"/></svg></div><h3>Mentor</h3><p>Guide individual learners toward their education and career goals.</p></div>
+          <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-hand"/></svg></div><h3>Organizational Partner</h3><p>Universities, companies, and nonprofits expanding access together.</p></div>
+          <div class="card"><div class="icon" style="color:var(--blue)"><svg width="26" height="26"><use href="#i-heart"/></svg></div><h3>Donor</h3><p>Fund devices, internet access, and course development.</p><a class="more" href="#donate">Donate <svg width="16" height="16"><use href="#i-arrow"/></svg></a></div>
+        </div>
+      </div>
+      <form class="form-card" id="volunteer-form" novalidate>
+        <h3 style="font-size:22px;margin-bottom:6px">Volunteer &amp; partner application</h3>
+        <p style="color:var(--muted);margin-bottom:22px;font-size:15px">Tell us how you'd like to help.</p>
+        <div class="form-grid">
+          <div class="field"><label for="vf-name">Full name</label><input id="vf-name" required></div>
+          <div class="field"><label for="vf-email">Email</label><input id="vf-email" type="email" required></div>
+          <div class="field"><label for="vf-country">Country</label><input id="vf-country"></div>
+          <div class="field"><label for="vf-role">I want to be a…</label><select id="vf-role"><option>Volunteer Instructor</option><option>Mentor</option><option>Organizational Partner</option><option>Other</option></select></div>
+          <div class="field full"><label for="vf-area">Area of expertise</label><select id="vf-area"><option>English Language</option><option>Computer Skills</option><option>Coding &amp; Programming</option><option>Artificial Intelligence</option><option>Operations / Fundraising</option></select></div>
+          <div class="field full"><label for="vf-msg">About you</label><textarea id="vf-msg" placeholder="Experience, availability, and what you'd love to teach"></textarea></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center" type="submit">Submit application</button>
+        <div class="success" role="status"></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ================= REGISTER ================= -->
+<div class="view" id="v-register">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Student Registration</div>
+    <div class="eyebrow">Student Registration</div>
+    <h1>Apply for a course</h1>
+    <p>Choose a program and level. Our team will contact you with next steps and class schedules.</p>
+  </div></div>
+  <section>
+    <div class="wrap" style="max-width:820px">
+      <form class="form-card" id="register-form" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="rf-first">First name</label><input id="rf-first" required></div>
+          <div class="field"><label for="rf-last">Last name</label><input id="rf-last" required></div>
+          <div class="field"><label for="rf-email">Email</label><input id="rf-email" type="email" required></div>
+          <div class="field"><label for="rf-country">Country</label><input id="rf-country"></div>
+          <div class="field"><label for="rf-dept">Program</label><select id="rf-dept"></select></div>
+          <div class="field"><label for="rf-course">Course / level</label><select id="rf-course"></select></div>
+          <div class="field"><label for="rf-age">Age group</label><select id="rf-age"><option>Under 18</option><option selected>18–24</option><option>25–39</option><option>40+</option></select></div>
+          <div class="field"><label for="rf-goal">Main goal</label><select id="rf-goal"><option>School / university</option><option>Getting a job</option><option>Career growth</option><option>Personal development</option></select></div>
+          <div class="field full"><label for="rf-msg">Anything we should know?</label><textarea id="rf-msg" placeholder="Your current level, schedule, device and internet access…"></textarea></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center" type="submit">Submit registration</button>
+        <p class="form-note">By registering you agree to our Terms of Use and Privacy Policy.</p>
+        <div class="success" role="status"></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ================= DONATE ================= -->
+<div class="view" id="v-donate">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Donate</div>
+    <div class="eyebrow">Donate</div>
+    <h1>Invest in a learner's future</h1>
+    <p>Your gift helps people around the world gain the language and technology skills they need to succeed.</p>
+  </div></div>
+  <section>
+    <div class="wrap split" style="align-items:start">
+      <div class="form-card" id="donate-card">
+        <h3 style="font-size:22px;margin-bottom:18px">Choose your gift</h3>
+        <div class="freq" id="freq"><button class="on" data-f="one-time">One-time</button><button data-f="monthly">Monthly</button></div>
+        <div class="amounts" id="amounts"></div>
+        <div class="field"><label for="custom-amt">Custom amount (USD)</label><input id="custom-amt" type="number" min="1" placeholder="Enter amount"></div>
+        <p id="impact-line" style="margin:18px 0;padding:14px 16px;background:var(--sky);border-radius:12px;font-weight:600;color:var(--navy-2);font-size:15px"></p>
+        <button class="btn btn-primary" id="donate-btn" style="width:100%;justify-content:center">Continue</button>
+        <p class="form-note">Online payments are coming soon. Connect a payment provider (for example Stripe) to accept donations here.</p>
+        <div class="success" id="donate-success" role="status"></div>
+      </div>
+      <div>
+        <div class="eyebrow">How funds are used</div>
+        <h2 style="font-size:32px;margin:12px 0 24px">Transparent by design</h2>
+        <div class="alloc">
+          <div class="alloc-row"><span>Course delivery</span><div class="bar"><i style="width:45%"></i></div><span>45%</span></div>
+          <div class="alloc-row"><span>Devices &amp; access</span><div class="bar"><i style="width:25%"></i></div><span>25%</span></div>
+          <div class="alloc-row"><span>Curriculum</span><div class="bar"><i style="width:15%"></i></div><span>15%</span></div>
+          <div class="alloc-row"><span>Platform</span><div class="bar"><i style="width:10%"></i></div><span>10%</span></div>
+          <div class="alloc-row"><span>Operations</span><div class="bar"><i style="width:5%"></i></div><span>5%</span></div>
+        </div>
+        <p class="form-note">Example allocation — update with your actual budget.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="view" id="v-contact">
+  <div class="page-hero"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Contact Us</div>
+    <div class="eyebrow">Contact Us</div>
+    <h1>We'd love to hear from you</h1>
+    <p>Questions about courses, volunteering, partnerships, or donations — send us a message.</p>
+  </div></div>
+  <section>
+    <div class="wrap split" style="align-items:start">
+      <div style="display:grid;gap:16px">
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-mail"/></svg></div><div><h4>Email</h4><p>info@[your-domain].org</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-globe"/></svg></div><div><h4>Where we work</h4><p>Online, with learners around the world</p></div></div>
+        <div class="feature"><div class="icon" style="color:var(--blue)"><svg width="24" height="24"><use href="#i-hand"/></svg></div><div><h4>Partnerships</h4><p>partners@[your-domain].org</p></div></div>
+      </div>
+      <form class="form-card" id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="cf-name">Name</label><input id="cf-name" required></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" required></div>
+          <div class="field full"><label for="cf-topic">Topic</label><select id="cf-topic"><option>Courses</option><option>Volunteering</option><option>Partnerships</option><option>Donations</option><option>Other</option></select></div>
+          <div class="field full"><label for="cf-msg">Message</label><textarea id="cf-msg" required></textarea></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center" type="submit">Send message</button>
+        <div class="success" role="status"></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ================= LEGAL ================= -->
+<div class="view" id="v-privacy">
+  <div class="page-hero"><div class="wrap"><div class="crumb"><a href="#home">Home</a> / Privacy Policy</div><h1>Privacy Policy</h1><p>How TGF collects, uses, and protects personal information.</p></div></div>
+  <section><div class="wrap" style="max-width:820px"><p class="lead">[Add your privacy policy here. Cover what data you collect from students, volunteers, and donors; how it's stored (e.g. Supabase); who can access it; and how people can request deletion.]</p></div></section>
+</div>
+<div class="view" id="v-terms">
+  <div class="page-hero"><div class="wrap"><div class="crumb"><a href="#home">Home</a> / Terms of Use</div><h1>Terms of Use</h1><p>The rules for using TGF's website and learning services.</p></div></div>
+  <section><div class="wrap" style="max-width:820px"><p class="lead">[Add your terms of use here. Cover acceptable use, course participation, certificates, intellectual property of course materials, and limitation of liability.]</p></div></section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#home" style="gap:16px"><img class="foot-emblem" src="assets/tgf-emblem-180.png" alt="TGF emblem"><div class="brand-text"><b style="color:#fff;font-size:17px">Technology Globalization Foundation</b><span style="color:var(--gold-2);text-transform:none;letter-spacing:0;font-style:italic;font-size:13px">Empowering People. Connecting the World.</span></div></a>
+        <p>Empowering People Through Language, Technology, and Innovation.</p>
+        <form class="newsletter" id="news-form"><input type="email" placeholder="Your email" aria-label="Email for newsletter" required><button class="btn btn-primary" type="submit">Subscribe</button></form>
+        <div class="success" id="news-success" style="margin-top:10px"></div>
+      </div>
+      <div><h4>Organization</h4><ul><li><a href="#about">About TGF</a></li><li><a href="#impact">Our Impact</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div><h4>Learn</h4><ul><li><a href="#programs">Educational Programs</a></li><li><a href="#courses">Courses</a></li><li><a href="#register">Student Registration</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#get-involved">Volunteer</a></li><li><a href="#donate">Donate</a></li><li><a href="#privacy">Privacy Policy</a></li><li><a href="#terms">Terms of Use</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="yr"></span> Technology Globalization Foundation. All rights reserved.</span><span>An international nonprofit education organization.</span></div>
+  </div>
+</footer>
+
+<script>
+const DEPTS = [
+  { id:'english', icon:'i-lang', color:'#1E6FD9', num:'Department 1', name:'English Language', program:'English Learning Program', tagline:'Language Education', sub:'Four learning levels',
+    short:'Communication, grammar, vocabulary, reading, writing, and speaking.',
+    cols:['Level','Courses'],
+    rows:[['Beginner','Alphabet, vocabulary, basic grammar'],['Elementary','Everyday conversation, reading'],['Intermediate','Writing, speaking, listening'],['Advanced','Academic and professional English']] },
+  { id:'computer', icon:'i-pc', color:'#0EA5A4', num:'Department 2', name:'Computer Skills', program:'Digital Skills Program', tagline:'Computer Education', sub:'Practical computer training',
+    short:'Microsoft Word, Excel, PowerPoint, and essential computer skills.',
+    cols:['Course','What students learn'],
+    rows:[['Computer Fundamentals','Hardware, software, operating systems'],['Microsoft Word','Documents, formatting, reports'],['Microsoft Excel','Formulas, functions, charts, data'],['Microsoft PowerPoint','Presentations and slide design'],['Internet Skills','Email, browsing, online safety'],['Microsoft Office Productivity','Using Office applications together']] },
+  { id:'coding', icon:'i-code', color:'#7C3AED', num:'Department 3', name:'Coding & Programming', program:'Technology Development Program', tagline:'Programming Education', sub:'From beginner to advanced',
+    short:'Web development, programming fundamentals, and software development.',
+    cols:['Level','Courses'],
+    rows:[['Beginner','Introduction to programming, HTML'],['Intermediate','CSS, JavaScript'],['Advanced','Python, databases, SQL'],['Project-Based','Website and application development']] },
+  { id:'ai', icon:'i-ai', color:'#0B1F3A', num:'Department 4', name:'Artificial Intelligence', program:'AI & Innovation Program', tagline:'Future Technology', sub:'Understanding and using AI',
+    short:'AI literacy, AI tools, prompt engineering, and responsible AI use.',
+    cols:['Course','What students learn'],
+    rows:[['AI Fundamentals','What AI is and how it works'],['AI Tools','Using ChatGPT and other AI tools'],['Prompt Engineering','Writing effective AI instructions'],['AI Productivity','Using AI for school and work'],['Responsible AI','Privacy, ethics, and fact-checking'],['Introduction to Machine Learning','Basic machine learning concepts']] }
+];
+const ROLES = [
+  {t:'Student',d:'Enroll in a course',i:'i-student',h:'#register'},
+  {t:'Volunteer Instructor',d:'Teach what you know',i:'i-teach',h:'#get-involved'},
+  {t:'Mentor',d:'Guide a learner',i:'i-mentor',h:'#get-involved'},
+  {t:'Donor',d:'Fund opportunity',i:'i-heart',h:'#donate'},
+  {t:'Partner',d:'Collaborate with us',i:'i-hand',h:'#get-involved'}
+];
+const $ = s => document.querySelector(s);
+const ico = (id,size=26) => `<svg width="${size}" height="${size}"><use href="#${id}"/></svg>`;
+const esc = s => s.replace(/&/g,'&amp;');
+
+// Home program cards
+$('#home-programs').innerHTML = DEPTS.map(d => `
+  <div class="card"><div class="icon" style="color:${d.color};background:${d.color}14">${ico(d.icon)}</div>
+  <h3>${esc(d.name)}</h3><p>${d.short}</p>
+  <a class="more" href="#courses" data-dept="${d.id}">View courses ${ico('i-arrow',16)}</a></div>`).join('');
+
+$('#home-roles').innerHTML = ROLES.map(r => `
+  <a class="role" href="${r.h}">${ico(r.i,24)}<b>${r.t}</b><small>${r.d}</small></a>`).join('');
+
+// Programs page
+$('#programs-grid').innerHTML = DEPTS.map(d => `
+  <div class="card" style="padding:32px">
+    <div style="display:flex;gap:16px;align-items:center">
+      <div class="icon" style="color:${d.color};background:${d.color}14">${ico(d.icon)}</div>
+      <div><div class="eyebrow" style="color:${d.color}">${d.num}</div><h3 style="margin:6px 0 0">${esc(d.name)}</h3></div>
+    </div>
+    <p style="margin:16px 0 14px">${d.short}</p>
+    <div class="tags" style="margin:0 0 14px"><span class="tag">${esc(d.program)}</span><span class="tag">${d.sub}</span></div>
+    <ul style="list-style:none;display:grid;gap:8px;font-size:14.5px">
+      ${d.rows.map(r=>`<li style="display:flex;gap:10px"><span class="level-dot" style="background:${d.color};margin-top:7px"></span><span><b style="color:var(--navy)">${esc(r[0])}</b> — <span style="color:var(--muted)">${r[1]}</span></span></li>`).join('')}
+    </ul>
+    <a class="more" href="#courses" data-dept="${d.id}">Full course details ${ico('i-arrow',16)}</a>
+  </div>`).join('');
+
+// Courses page
+let activeDept = 'all';
+function renderCourses(){
+  $('#course-tabs').innerHTML = [{id:'all',name:'All departments'},...DEPTS].map(d =>
+    `<button class="tab ${activeDept===d.id?'on':''}" data-tab="${d.id}">${esc(d.name)}</button>`).join('');
+  const list = activeDept==='all' ? DEPTS : DEPTS.filter(d=>d.id===activeDept);
+  $('#course-list').innerHTML = list.map(d => `
+    <div class="dept">
+      <div class="dept-head">
+        <div class="icon" style="color:${d.color};background:#fff;border:1px solid var(--line)">${ico(d.icon)}</div>
+        <div><div class="num">${d.num.toUpperCase()}</div><h3>${esc(d.program)}</h3><p>${d.short}</p></div>
+        <div class="tags"><span class="tag">${d.tagline}</span><span class="tag">${d.sub}</span></div>
+      </div>
+      <div style="overflow-x:auto"><table><thead><tr><th>${d.cols[0]}</th><th>${d.cols[1]}</th></tr></thead><tbody>
+      ${d.rows.map(r=>`<tr><td><span class="level-dot" style="background:${d.color}"></span>${esc(r[0])}</td><td>${r[1]}</td></tr>`).join('')}
+      </tbody></table></div>
+    </div>`).join('');
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-tab]'); if(t){activeDept=t.dataset.tab;renderCourses();}
+  const d = e.target.closest('[data-dept]'); if(d){activeDept=d.dataset.dept;renderCourses();}
+});
+renderCourses();
+
+// Registration selects
+const deptSel = $('#rf-dept'), courseSel = $('#rf-course');
+deptSel.innerHTML = DEPTS.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('');
+function fillCourses(){ const d = DEPTS.find(x=>x.id===deptSel.value); courseSel.innerHTML = d.rows.map(r=>`<option>${esc(r[0])}</option>`).join(''); }
+deptSel.addEventListener('change', fillCourses); fillCourses();
+
+// Forms (front-end only — connect to Supabase in Phase 2)
+function wireForm(id, msg){
+  const f = document.getElementById(id), ok = f.querySelector('.success');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = [...f.querySelectorAll('[required]')].find(i => !i.value.trim() || (i.type==='email' && !/^\S+@\S+\.\S+$/.test(i.value)));
+    if(bad){ bad.focus(); bad.style.borderColor='#DC2626'; setTimeout(()=>bad.style.borderColor='',1800); return; }
+    ok.textContent = msg(f); ok.style.display='block'; f.querySelector('button[type=submit]').disabled = true;
+  });
+}
+wireForm('register-form', f => `Thank you, ${f.querySelector('#rf-first').value}! Your application for ${deptSel.options[deptSel.selectedIndex].text} — ${courseSel.value} has been received. (Demo: connect this form to Supabase to store registrations.)`);
+wireForm('volunteer-form', f => `Thank you, ${f.querySelector('#vf-name').value}! Your application has been received. (Demo: connect this form to Supabase to store applications.)`);
+wireForm('contact-form', () => `Thanks — your message has been received. (Demo: connect this form to email or Supabase to receive messages.)`);
+$('#news-form').addEventListener('submit', e => { e.preventDefault(); const s=$('#news-success'); s.textContent='Subscribed! (Demo)'; s.style.display='block'; });
+
+// Donate
+const AMTS = [10,25,50,100]; let amt = 25, freq = 'one-time';
+const IMPACT = a => a>=100 ? 'Sponsors a full course pathway for a learner.' : a>=50 ? 'Supports internet access for a student for a month.' : a>=25 ? 'Provides learning materials for a full course level.' : 'Helps fund a live lesson for a small group.';
+function renderDonate(){
+  $('#amounts').innerHTML = AMTS.map(a=>`<button class="amt ${a===amt?'on':''}" data-amt="${a}">$${a}</button>`).join('');
+  $('#impact-line').textContent = `$${amt}${freq==='monthly'?'/month':''} — ${IMPACT(amt)}`;
+  $('#donate-btn').textContent = `Continue with $${amt}${freq==='monthly'?' monthly':''}`;
+}
+$('#amounts').addEventListener('click', e => { const b=e.target.closest('[data-amt]'); if(b){amt=+b.dataset.amt; $('#custom-amt').value=''; renderDonate();} });
+$('#custom-amt').addEventListener('input', e => { const v=Math.round(+e.target.value); if(v>0){amt=v; renderDonate();} });
+$('#freq').addEventListener('click', e => { const b=e.target.closest('[data-f]'); if(!b)return; freq=b.dataset.f; [...$('#freq').children].forEach(x=>x.classList.toggle('on',x===b)); renderDonate(); });
+$('#donate-btn').addEventListener('click', () => { const s=$('#donate-success'); s.textContent=`Thank you for choosing to give $${amt}${freq==='monthly'?' every month':''}! Online payments will be enabled soon.`; s.style.display='block'; });
+renderDonate();
+
+// Router
+const VIEWS = ['home','about','programs','courses','impact','get-involved','register','donate','contact','privacy','terms'];
+function route(){
+  const h = location.hash.slice(1); const v = VIEWS.includes(h) ? h : 'home';
+  document.querySelectorAll('.view').forEach(el => el.classList.toggle('on', el.id==='v-'+v));
+  document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav===v));
+  $('#menu').classList.remove('open');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+window.addEventListener('hashchange', route); route();
+$('#burger').addEventListener('click', () => $('#menu').classList.toggle('open'));
+$('#yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
